@@ -21,20 +21,20 @@ void print(float x, float y, float xc, float yc)
 void bresenhamCircle(float r, float xc, float yc)
 {
     int x = 0, y = r;
-    float p = (5 / 4) - r;
+    float p = 3 - 2 * r;
 
     print(x, y, xc, yc);
-    while (x < y)
+    while (y >= x)
     {
         x++;
-        if (p < 0)
+        if (p > 0)
         {
-            p = p + 2 * x + 1;
+            y--;
+            p = p + 4 * (x - y) + 10;
         }
         else
         {
-            p = p + 2 * (x - y) + 1;
-            y--;
+            p = p + 4 * x + 6;
         }
         print(x, y, xc, yc);
     }

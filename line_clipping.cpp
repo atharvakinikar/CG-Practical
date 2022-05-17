@@ -83,12 +83,12 @@ void cohen(float x1, float y1, float x2, float y2) // implementing cohen-sutherl
         if ((c & 8) > 0) // checking if  c&8 >0 ( greater than ymax)
         {
             y = ymax; // assigning new values to x and y
-            x = xi + 1.0 / (m * (ymax - yi));
+            x = xi + (1.0 / m) * (ymax - yi);
         }
         if ((c & 4) > 0) // checking if c> 4 >0 (less than ymin)
         {
             y = ymin; // assigning new values to x and y
-            x = xi + 1.0 / (m * (ymin - yi));
+            x = xi + (1.0 / m) * (ymin - yi);
         }
         if ((c & 2) > 0) // checking if  c&2 >0 ( greater than xmax)
         {
@@ -113,7 +113,7 @@ void cohen(float x1, float y1, float x2, float y2) // implementing cohen-sutherl
             c2 = code(xd2, yd2);
         }
     }
-    p++;
+    // p++;
     disp(); // calling display function again to display new line
 }
 void mykey(unsigned char ch, int x, int y)

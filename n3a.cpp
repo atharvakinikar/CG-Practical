@@ -14,7 +14,7 @@ void print(int x, int y)
 void Bresenham(float x1, float y1, float x2, float y2)
 {
     int i;
-    float dx, dy, xinc, yinc, inc1, inc2, p, x, y;
+    float dx, dy, xinc, yinc, e, ne, p, x, y;
     dx = abs(x2 - x1);
     dy = abs(y2 - y1);
 
@@ -34,17 +34,17 @@ void Bresenham(float x1, float y1, float x2, float y2)
         print(x, y);
 
         p = 2 * dy - dx;
-        inc1 = 2 * (dy - dx);
-        inc2 = 2 * dy;
+        ne = 2 * (dy - dx);
+        e = 2 * dy;
         for (i = 0; i < dx; i++)
         {
             if (p > 0)
             {
                 y += yinc;
-                p += inc1;
+                p += ne;
             }
             else
-                p += inc2;
+                p += e;
             x += xinc;
             print(x, y);
         }
@@ -54,17 +54,17 @@ void Bresenham(float x1, float y1, float x2, float y2)
         print(x, y);
 
         p = 2 * dx - dy;
-        inc1 = 2 * (dx - dy);
-        inc2 = 2 * dx;
+        ne = 2 * (dx - dy);
+        e = 2 * dx;
         for (i = 0; i < dy; i++)
         {
             if (p > 0)
             {
                 x += xinc;
-                p += inc1;
+                p += ne;
             }
             else
-                p += inc2;
+                p += e;
             y += yinc;
             print(x, y);
         }
