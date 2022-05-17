@@ -64,34 +64,11 @@ void Draw()
 
     r = d * 3.14 / 180;
 
-    if (a == 1)
+    for (i = 0; i < 8; i++)
     {
-        for (i = 0; i < 8; i++)
-        {
-            rV[i][0] = V[i][0];
-            rV[i][1] = V[i][1] * cos(r) - V[i][2] * sin(r);
-            rV[i][2] = V[i][1] * sin(r) + V[i][2] * cos(r);
-        }
-    }
-
-    if (a == 2)
-    {
-        for (i = 0; i < 8; i++)
-        {
-            rV[i][0] = V[i][2] * sin(r) + V[i][0] * cos(r);
-            rV[i][1] = V[i][1];
-            rV[i][2] = V[i][2] * cos(r) - V[i][0] * sin(r);
-        }
-    }
-
-    if (a == 3)
-    {
-        for (i = 0; i < 8; i++)
-        {
-            rV[i][0] = V[i][0] * cos(r) - V[i][1] * sin(r);
-            rV[i][1] = V[i][0] * sin(r) + V[i][1] * cos(r);
-            rV[i][2] = V[i][2];
-        }
+        rV[i][0] = V[i][2] * sin(r) + V[i][0] * cos(r);
+        rV[i][1] = V[i][1];
+        rV[i][2] = V[i][2] * cos(r) - V[i][0] * sin(r);
     }
 
     Cube(rV[0], rV[1], rV[2], rV[3], rV[4], rV[5], rV[6], rV[7]);
@@ -101,8 +78,6 @@ void Draw()
 
 int main(int argc, char *argv[])
 {
-    printf("Enter the Axis of Rotation [ 1->Xaxis | 2->Yaxis | 3->Zaxis ]: ");
-    scanf("%d", &a);
     glutInit(&argc, argv);
     glutInitWindowSize(600, 600);
     glutInitWindowPosition(50, 150);

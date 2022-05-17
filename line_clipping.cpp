@@ -12,7 +12,9 @@ int ymin = -100;
 int xmax = 100;
 int xmin = -100;
 static int p = 0;
-void disp();               // declaring display function
+void disp();
+
+// declaring display function
 float round_value(float v) // function to round value to next greater float
 {
     return (v + 0.5);
@@ -45,6 +47,7 @@ void dda(float X1, float Y1, float X2, float Y2) // dda algorithm
 }
 int code(int x, int y) // calculating outcode of point
 {
+    // TBRL
     int c = 0;
     if (y > ymax)
         c = 8; // if greater than ymax set code to 8
